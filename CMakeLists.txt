@@ -5,7 +5,8 @@
 ##################################################
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8.5)
-PROJECT(FOO Fortran)
+#set(CMAKE_VERBOSE_MAKEFILE ON)
+PROJECT(DGSOL Fortran CXX C)
 
 # Set the FOO version
 SET(VERSION 1.2.3)
@@ -47,28 +48,28 @@ ENDIF(FCNAME STREQUAL "pgf90")
 ############################################################
 
 # Define the executable name
-SET(FOOEXE foo)
-
-# Define the library name
-SET(BARLIB bar)
+#SET(FOOEXE foo)
 
 # Define some directories
 SET(SRC ${CMAKE_SOURCE_DIR}/src)
-SET(LIB ${CMAKE_SOURCE_DIR}/lib)
-SET(BIN ${CMAKE_SOURCE_DIR}/bin)
-SET(SRCFOO ${SRC}/foo)
-SET(SRCBAR ${SRC}/bar)
 
 # Have the .mod files placed in the lib folder
 SET(CMAKE_Fortran_MODULE_DIRECTORY ${LIB})
 
 # The source for the BAR library and have it placed in the lib folder
-ADD_SUBDIRECTORY(${SRCBAR} ${LIB})
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/blas)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/csrch)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/dgvmlm)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/utils)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/vmlm)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/dgsol_s)
+ADD_SUBDIRECTORY(${CMAKE_SOURCE_DIR}/src/dgsol_p)
+
+ADD_EXECUTABLE(dgsol src/dgsol_j/dgsol_seq_lib.c src/dgsol_j/dgsolj_seq_test.cpp)
+set_target_properties(dgsol PROPERTIES LINKER_LANGUAGE C)
+TARGET_LINK_LIBRARIES(dgsol  dgvmlm vmlm csrch   blas utils)
+link_libraries(dgsol gfortran m)
 
 # The source for the FOO binary and have it placed in the bin folder
-ADD_SUBDIRECTORY(${SRCFOO} ${BIN})
+#ADD_SUBDIRECTORY(${SRCFOO} ${BIN})
 
-# Add a distclean target to the Makefile
-ADD_CUSTOM_TARGET(distclean 
-    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake
-)

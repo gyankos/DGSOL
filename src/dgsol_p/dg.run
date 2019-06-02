@@ -1,0 +1,183 @@
+#!/bin/csh
+
+# To run a test case, uncomment the corresponding command lines.
+#
+# To obtain multiple solutions, use -s#solution option to
+# indicate the number of solutions required. The default value is
+# equal to the # of processors specified by the -np option.
+
+### test problem 1 with eps = 0.01: ###
+
+set data = ../data/data_set_1/graph.01.data
+set  sol = sol/graph.01.sol
+set  sum = sum/graph.01.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 1 with eps = 0.02: ###
+
+set data = ../data/data_set_1/graph.02.data
+set  sol = sol/graph.02.sol
+set  sum = sum/graph.02.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 1 with eps = 0.04: ###
+
+set data = ../data/data_set_1/graph.04.data
+set  sol = sol/graph.04.sol
+set  sum = sum/graph.04.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 1 with eps = 0.06: ###
+
+set data = ../data/data_set_1/graph.06.data
+set  sol = sol/graph.06.sol
+set  sum = sum/graph.06.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 1 with eps = 0.08: ###
+
+set data = ../data/data_set_1/graph.08.data
+set  sol = sol/graph.08.sol
+set  sum = sum/graph.08.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 1 with eps = 0.10: ###
+
+set data = ../data/data_set_1/graph.10.data
+set  sol = sol/graph.10.sol
+set  sum = sum/graph.10.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 2 with eps = 0.04: ###
+
+set data = ../data/data_set_2/dna100.04.data
+set sol = sol/dna100.04.sol
+set sum = sum/dna100.04.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s20 $data $sol $sum
+
+### test problem 2 with eps = 0.08: ###
+
+set data = ../data/data_set_2/dna100.08.data
+set  sol = sol/dna100.08.sol
+set  sum = sum/dna100.08.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 2 with eps = 0.12: ###
+
+set data = ../data/data_set_2/dna100.12.data
+set  sol = sol/dna100.12.sol
+set  sum = sum/dna100.12.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 2 with eps = 0.16: ###
+
+set data = ../data/data_set_2/dna100.16.data
+set  sol = sol/dna100.16.sol
+set  sum = sum/dna100.16.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 3 with eps = 0.04: ###
+
+set data = ../data/data_set_3/dna200.04.data
+set  sol = sol/dna200.04.sol
+set  sum = sum/dna200.04.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s20 $data $sol $sum
+
+### test problem 3 with eps = 0.08: ###
+
+set data = ../data/data_set_3/dna200.08.data
+set  sol = sol/dna200.08.sol
+set  sum = sum/dna200.08.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 3 with eps = 0.12: ###
+
+set data = ../data/data_set_3/dna200.12.data
+set  sol = sol/dna200.12.sol
+set  sum = sum/dna200.12.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 3 with eps = 0.16: ###
+
+set data = ../data/data_set_3/dna200.16.data
+set  sol = sol/dna200.16.sol
+set  sum = sum/dna200.16.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 4 with eps = 0.04: ###
+
+set data = ../data/data_set_4/dna100.04.data
+set  sol = sol/dna100.04.sol
+set  sum = sum/dna100.04.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 4 with eps = 0.08: ###
+
+set data = ../data/data_set_4/dna100.08.data
+set  sol = sol/dna100.08.sol
+set  sum = sum/dna100.08.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 4 with eps = 0.12: ###
+
+set data = ../data/data_set_4/dna100.12.data
+set  sol = sol/dna100.12.sol
+set  sum = sum/dna100.12.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 4 with eps = 0.16: ###
+
+set data = ../data/data_set_4/dna100.16.data
+set  sol = sol/dna100.16.sol
+set  sum = sum/dna100.16.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 5 with eps = 0.04: ###
+
+set data = ../data/data_set_5/dna200.04.data
+set  sol = sol/dna200.04.sol
+set  sum = sum/dna200.04.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 5 with eps = 0.08: ###
+
+set data = ../data/data_set_5/dna200.08.data
+set  sol = sol/dna200.08.sol
+set  sum = sum/dna200.08.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 5 with eps = 0.12: ###
+
+set data = ../data/data_set_5/dna200.12.data
+set  sol = sol/dna200.12.sol
+set  sum = sum/dna200.12.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum
+
+### test problem 5 with eps = 0.16: ###
+
+set data = ../data/data_set_5/dna200.16.data
+set  sol = sol/dna200.16.sol
+set  sum = sum/dna200.16.sum
+
+mpirun -np 5 -machinefile dg_mach dgsol -s10 $data $sol $sum

@@ -3,19 +3,20 @@
 ########################################
 
 # Add the source files
-SET(FOO_src ${SRCFOO}/foo.f90
-            ${SRCFOO}/constants.f90
+SET(DGSOLS_src ${CMAKE_SOURCE_DIR}/src/dgsol_s/dgsol.c
 )
 
 # Define the executable in terms of the source files
-ADD_EXECUTABLE(${FOOEXE} ${FOO_src})
+ADD_EXECUTABLE(dgsol_s ${DGSOLS_src})
+set_target_properties(dgsol_s PROPERTIES LINKER_LANGUAGE C)
 
 #####################################################
 # Add the needed libraries and special compiler flags
 #####################################################
 
 # This links foo to the bar library
-TARGET_LINK_LIBRARIES(${FOOEXE} ${BARLIB})
+TARGET_LINK_LIBRARIES(dgsol_s dgvmlm vmlm csrch  blas utils)
+link_libraries(dgsol_s gfortran)
 
 # Uncomment if you need to link to BLAS and LAPACK
 #TARGET_LINK_LIBRARIES(${FOOEXE} ${BLAS_LIBRARIES}
@@ -39,9 +40,3 @@ TARGET_LINK_LIBRARIES(${FOOEXE} ${BARLIB})
 # Tell how to install this executable
 #####################################
 
-IF(WIN32)
-    SET(CMAKE_INSTALL_PREFIX "C:\\Program Files")
-ELSE()
-    SET(CMAKE_INSTALL_PREFIX /usr/local)
-ENDIF(WIN32)
-INSTALL(TARGETS ${FOOEXE} RUNTIME DESTINATION bin)
